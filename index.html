@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CodSoft Certificate Verifier</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      text-align: center;
+      padding: 50px;
+    }
+    .box {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      display: inline-block;
+    }
+    input {
+      padding: 10px;
+      width: 250px;
+      margin-bottom: 15px;
+    }
+    button {
+      padding: 10px 20px;
+      background: #3e4684;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h2>CodSoft Certificate Verifier</h2>
+    <p>Enter your Certificate ID (CID):</p>
+    <input type="text" id="cidInput" placeholder="e.g. CSWD-1234">
+    <br>
+    <button onclick="verify()">Verify</button>
+
+    <div class="result" id="resultBox"></div>
+  </div>
+
+  <script>
+    function verify() {
+      const cid = document.getElementById("cidInput").value.trim();
+      const result = document.getElementById("resultBox");
+      
+      if (cid === "CSWD-7295") {
+        result.innerHTML = `
+          ✅ <b>Certificate Verified!</b><br><br>
+          <b>Name:</b> Anjali Dewal<br>
+          <b>Field:</b> Web Development<br>
+          <b>Organization:</b> CodSoft<br>
+          <b>Duration:</b> 02/06/2025 to 01/07/2025
+        `;
+        if (cid === "CSWD-7290") {
+        result.innerHTML = `
+          ✅ <b>Certificate Verified!</b><br><br>
+          <b>Name:</b> Renuka<br>
+          <b>Field:</b> Web Development<br>
+          <b>Organization:</b> CodSoft<br>
+          <b>Duration:</b> 02/06/2025 to 01/07/2025
+        `;
+      } else {
+        result.innerHTML = `❌ <b>No certificate found for CID: ${cid}</b>`;
+      }
+    }
+  </script>
+
+</body>
+</html>
